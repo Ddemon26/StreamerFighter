@@ -69,12 +69,7 @@ namespace TCS {
         }
 
         void Update() {
-            if ( m_clickthrough ) {
-                SetClickThrough( true );
-            }
-            else {
-                SetClickThrough( false );
-            }
+            SetClickThrough(!IsPointerOverUIOr3DObject());
         }
 
         void OnDestroy() {

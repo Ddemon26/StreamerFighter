@@ -53,7 +53,6 @@ namespace StreamAPI {
             if (m_bot != null) {
                 m_bot.OnLog -= SendLogMessage;
                 m_bot.OnMessageReceived -= LogMessageReceived;
-                m_bot.Dispose();
             }
         }
         #endregion

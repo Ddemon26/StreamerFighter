@@ -16,7 +16,7 @@
                         <ui:Button text="Start Twitch" name="StartTwitch" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <UI.TwitchloginElement name="TwitchLogin" focusable="true" />
+                <UI.TwitchloginElement name="TwitchLogin" />
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1; flex-shrink: 0; max-width: 33%;" />
