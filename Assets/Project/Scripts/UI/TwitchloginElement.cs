@@ -19,7 +19,7 @@ namespace UI {
         readonly VisualElement m_loginPanel = new() { name = "login-panel" };
         readonly VisualElement m_twitchHeader = new() { name = "TwitchHeader" };
         readonly Label m_twitchHeaderLabel = new() { name = "TwitchHeader_label" };
-        readonly TextField m_authKey = new() { name = "AuthKey" };
+        readonly TextField m_authKey = new() { name = "AuthKey", isPasswordField = true};
         readonly TextField m_userName = new() { name = "UserName" };
         readonly TextField m_channelName = new() { name = "ChannelName" };
         readonly Toggle m_enableLogging = new() { name = "EnableLogging" };
