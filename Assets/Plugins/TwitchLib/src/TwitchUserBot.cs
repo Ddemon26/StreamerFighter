@@ -8,7 +8,7 @@ using TwitchLib.Communication.Models;
 using TwitchSharp.Interfaces;
 namespace TwitchSharp
 {
-    public class TwitchUserBot {
+    public class TwitchUserBot : IDisposable {
         readonly string m_channel;
         readonly TwitchClient m_client;
         readonly ITwitchConfiguration m_configuration;
@@ -106,5 +106,20 @@ namespace TwitchSharp
         }
 
         public void SendMessageToChannel(string message) => m_client.SendMessage(m_channel, message);
+        public void Dispose() {
+            if (m_client.IsConnected) {
+                m_client.Disconnect();
+            }
+
+            if (m_logDebug) {
+                m_client.OnLog -= Client_OnLog;
+            }
+
+            m_client.OnJoinedChannel -= Client_OnJoinedChannel;
+            m_client.OnMessageReceived -= Client_OnMessageReceived;
+            m_client.OnWhisperReceived -= Client_OnWhisperReceived;
+            m_client.OnNewSubscriber -= Client_OnNewSubscriber;
+            m_client.OnConnected -= Client_OnConnected;
+        }
     }
 }
